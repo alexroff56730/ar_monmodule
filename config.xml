@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>ar_monmodule</name>
+	<displayName><![CDATA[ar_monmodule]]></displayName>
+	<version><![CDATA[1.0.0]]></version>
+	<description><![CDATA[test création module]]></description>
+	<author><![CDATA[AR-WEB-OUEST]]></author>
+	<tab><![CDATA[administration]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+</module>
