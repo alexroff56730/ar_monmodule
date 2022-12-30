@@ -64,7 +64,8 @@ class Ar_monmodule extends Module
         return parent::install() &&
             $this->registerHook('header') &&
             $this->registerHook('displayBackOfficeHeader') &&
-            $this->registerHook('actionAdminControllerSetMedia');
+            $this->registerHook('actionAdminControllerSetMedia') &&
+            $this->registerHook('hookDevis');
     }
 
     public function uninstall()
@@ -220,5 +221,10 @@ class Ar_monmodule extends Module
     public function hookActionAdminControllerSetMedia()
     {
         /* Place your code here. */
+    }
+
+    public function hookDevis() {
+        $this->context->controller->addJS($this->_path.'/views/js/front.js');
+        $this->context->controller->addCSS($this->_path.'/views/js/front.css');
     }
 }
