@@ -72,7 +72,11 @@ class Ar_monmodule extends Module
     {
         Configuration::deleteByName('AR_MONMODULE_LIVE_MODE');
 
-        return parent::uninstall();
+        return parent::uninstall() &&
+            $this->registerHook('header') &&
+            $this->registerHook('displayBackOfficeHeader') &&
+            $this->registerHook('actionAdminControllerSetMedia') &&
+            $this->registerHook('hookDevis');
     }
 
     /**
