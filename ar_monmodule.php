@@ -63,6 +63,7 @@ class Ar_monmodule extends Module
 
         return parent::install() &&
             $this->registerHook('header') &&
+            $this->registerHook('displayHome') &&
             $this->registerHook('displayBackOfficeHeader') &&
             $this->registerHook('actionAdminControllerSetMedia') &&
             $this->registerHook('hookDevis');
@@ -74,6 +75,7 @@ class Ar_monmodule extends Module
 
         return parent::uninstall() &&
             $this->registerHook('header') &&
+            $this->registerHome('displayHome') &&
             $this->registerHook('displayBackOfficeHeader') &&
             $this->registerHook('actionAdminControllerSetMedia') &&
             $this->registerHook('hookDevis');
@@ -229,6 +231,12 @@ class Ar_monmodule extends Module
 
     public function hookDevis() {
         $this->context->controller->addJS($this->_path.'/views/js/front.js');
-        $this->context->controller->addCSS($this->_path.'/views/js/front.css');
+        $this->context->controller->addCSS($this->_path.'/views/css/front.css');
+    }
+
+    public function hookHome() {
+        $this->context->controller->addJS($this->_path.'/views/js/font.js');
+        $this->context->controller->addCSS($this->_path.'/views/css/front.css');
+        return $this->display(__FILE__, 'banner.tpl');
     }
 }
